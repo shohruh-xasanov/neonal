@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const doctorSchema = new mongoose.Schema({
-    fullnaem:{
+    fullname:{
         type:String,
         required:[true, "Ism va familyani kiriting"],
         trim:true,
@@ -20,12 +20,14 @@ const doctorSchema = new mongoose.Schema({
         minlength:6,
         maxlength:1000
     },
-    links:[{
-        type:String,
+    links:{
+        fb:{String},
+        tw:{String},
+        go:{String},
         trim:true,
         minlength:6,
         maxlength:1000
-    }],
+    },
     image:{
         type:String,
         required:true

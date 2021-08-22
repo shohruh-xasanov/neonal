@@ -22,10 +22,10 @@ const serviceSchema = new mongoose.Schema({
         minlength:6,
         maxlength:10000
     },
-    tag:[{
+    tag:{
         type:String,
         required:true
-    }],
+    },
     image:{
         type:String,
         required:true

@@ -1,18 +1,18 @@
 const Blog = require('../models/blog')
-const upload = require('../fileUpload/fileUpload')
+const {sharpFile} = require('../fileUpload/sharp')
 
 const blogControllers = {
     createBlog : async (req,res)=>{
         try {
+            const files = sharpFile(req.file.filename, 800, 450)
             const {title,description} = req.body
-            console.log(req.file)
-            const blog = new Blog({title,description, image:req.file.filename})
+            const blog = new Blog({title,description, image:files})
             await blog.save()
             res.status(201).json({blog})
         } catch (error) {
             res.status(500).json({msg: error.message})
         }
-    },
+    }
 }
 
 module.exports = blogControllers
