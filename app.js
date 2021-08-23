@@ -23,11 +23,39 @@ app.use(cookieParser())
 app.use(cors())
 app.set('view engine', 'ejs')
 app.set('views', './views')
-app.use(layout);
 
-app.use('/public', express.static('public'))
+app.use(express.static(path.join(__dirname + "/public")))
+
 
 app.use('/', require('./routes/blogRouter'))
+
+app.get('/', (req,res)=>{
+    res.render('index')
+})
+app.get('/about', (req,res)=>{
+    res.render('about')
+})
+app.get('/blogdetails', (req,res)=>{
+    res.render('blogDetailsSidebar')
+})
+app.get('/blog', (req,res)=>{
+    res.render('blog')
+})
+app.get('/contact', (req,res)=>{
+    res.render('contact')
+})
+app.get('/error', (req,res)=>{
+    res.render('error')
+})
+app.get('/faq', (req,res)=>{
+    res.render('faq')
+})
+app.get('/gallery', (req,res)=>{
+    res.render('gallery')
+})
+app.get('/service', (req,res)=>{
+    res.render('service')
+})
 
 app.listen(PORT, ()=>{
     console.log(`Localhost is running to ${PORT}`)
