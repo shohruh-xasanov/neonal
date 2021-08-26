@@ -7,11 +7,11 @@ exports.sharpFile = (filename, px, pz) => {
   try {
     let compressedFile = path.join(
       __dirname,
-      "../public/uploads/",
+      "../public/uploads/image/",
       md5(new Date().getTime()) + ".jpg"
     );
     let sharpcha = path.join(
-      path.dirname(__dirname) + `/public/uploads/${filename}`
+      path.dirname(__dirname) + `/public/uploads/image/${filename}`
     );
     const file = sharp(sharpcha)
       .resize(px, pz)
@@ -31,7 +31,7 @@ exports.sharpFile = (filename, px, pz) => {
           }
         });
       });
-    return "/public/uploads/" + path.basename(compressedFile);
+    return "/public/uploads/image/" + path.basename(compressedFile);
   } catch (error) {
     throw error;
   }

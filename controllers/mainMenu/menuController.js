@@ -1,0 +1,7 @@
+const Slider = require('../../models/slider')
+const Service = require('../../models/service')
+const About = require('../../models/about')
+const Doctor = require('../../models/doctar')
+const Blog = require('../../models/blog')
+const Patients = require('../../models/patients')
+const OurContact = require('../../models/ourContact')

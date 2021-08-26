@@ -1,6 +1,5 @@
 const express = require('express')
 const ejs = require('ejs')
-const layout = require('express-ejs-layouts')
 const bodyParser = require('body-parser')
 const compression = require('compression')
 const cors = require('cors')
@@ -24,10 +23,19 @@ app.use(cors())
 app.set('view engine', 'ejs')
 app.set('views', './views')
 
+app.use('/public',express.static('public'));
 app.use(express.static(path.join(__dirname + "/public")))
 
-
 app.use('/', require('./routes/blogRouter'))
+app.use('/', require('./routes/commentRouter'))
+app.use('/', require('./routes/contactusRouter'))
+app.use('/', require('./routes/drRouter'))
+app.use('/', require('./routes/ourContactRouter'))
+app.use('/', require('./routes/serviceRouter'))
+app.use('/', require('./routes/sliderRouter'))
+app.use('/', require('./routes/userRouter'))
+app.use('/', require('./routes/bannerRouter'))
+app.use('/', require('./routes/about'))
 
 app.get('/', (req,res)=>{
     res.render('index')

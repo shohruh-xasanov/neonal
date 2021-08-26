@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const doctorSchema = new mongoose.Schema({
+const patientsSchema = new mongoose.Schema({
     fullname:{
         type:String,
         required:[true, "Ism va familyani kiriting"],
@@ -8,9 +8,9 @@ const doctorSchema = new mongoose.Schema({
         minlength:6,
         maxlength:1000
     },
-    serviceID:{
-        type:mongoose.Schema.ObjectId,
-        ref:'Service',
+    jobs:{
+        type:String,
+        trim:true,
         required:true
     },
     title:{
@@ -20,11 +20,6 @@ const doctorSchema = new mongoose.Schema({
         minlength:6,
         maxlength:1000
     },
-    links:{
-        fb:{String},
-        tw:{String},
-        go:{String},
-    },
     image:{
         type:String,
         required:true
@@ -33,4 +28,4 @@ const doctorSchema = new mongoose.Schema({
     timestamps:true
 })
 
-module.exports = mongoose.model("Doctor", doctorSchema)
+module.exports = mongoose.model("Patients", patientsSchema)
