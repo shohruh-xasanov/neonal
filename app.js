@@ -37,20 +37,10 @@ app.use('/', require('./routes/userRouter'))
 app.use('/', require('./routes/bannerRouter'))
 app.use('/', require('./routes/about'))
 
-app.get('/', (req,res)=>{
-    res.render('index')
-})
-app.get('/about', (req,res)=>{
-    res.render('about')
-})
+app.use('/', require('./routes/mainRouter/mainRouter'))
+
 app.get('/blogdetails', (req,res)=>{
     res.render('blogDetailsSidebar')
-})
-app.get('/blog', (req,res)=>{
-    res.render('blog')
-})
-app.get('/contact', (req,res)=>{
-    res.render('contact')
 })
 app.get('/error', (req,res)=>{
     res.render('error')
@@ -60,9 +50,6 @@ app.get('/faq', (req,res)=>{
 })
 app.get('/gallery', (req,res)=>{
     res.render('gallery')
-})
-app.get('/service', (req,res)=>{
-    res.render('service')
 })
 
 app.listen(PORT, ()=>{

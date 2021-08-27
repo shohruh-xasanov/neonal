@@ -1,5 +1,6 @@
 const Blog = require('../models/blog')
 const {sharpFile} = require('../fileUpload/sharp')
+const OurContact = require('../models/ourContact')
 
 const blogControllers = {
     createBlog : async (req,res)=>{
@@ -12,6 +13,13 @@ const blogControllers = {
         } catch (error) {
             res.status(500).json({msg: error.message})
         }
+    },
+    getAll : async (req,res)=>{
+        const blog = await Blog.find()
+        const ourContact = await OurContact.find()
+        res.render('blog',{
+            blog, ourContact
+        })
     }
 }
 

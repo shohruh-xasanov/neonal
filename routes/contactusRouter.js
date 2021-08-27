@@ -1,7 +1,8 @@
 const router = require("express").Router()
-const {createContactus} = require('../controllers/contactusController')
+const {createContactus, getAll} = require('../controllers/contactusController')
 
 router.route('/contact')
     .post(createContactus)
+    .get(getAll)
 
 module.exports = router

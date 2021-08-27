@@ -1,5 +1,7 @@
 const Service = require('../models/service')
 const {sharpFile} = require('../fileUpload/sharp')
+const OurContact = require('../models/ourContact')
+
 
 const serviceController = {
     createService : async (req,res)=>{
@@ -12,6 +14,13 @@ const serviceController = {
         } catch (error) {
             res.status(500).json({msg: error.message})
         }
+    },
+    getAll : async (req,res)=>{
+        const service = await Service.find()
+        const ourContact = await OurContact.find()
+        res.render('servises',{
+            service, ourContact
+        })
     }
 }
 

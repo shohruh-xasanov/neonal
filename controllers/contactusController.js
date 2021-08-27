@@ -1,4 +1,5 @@
 const Contactus = require('../models/contactus')
+const OurContact = require('../models/ourContact')
 
 const contactusControllers = {
     createContactus : async (req,res)=>{
@@ -10,6 +11,10 @@ const contactusControllers = {
         } catch (error) {
             res.status(500).json({msg: error.message})
         }
+    },
+    getAll : async (req,res)=>{
+        const contact = await OurContact.find()
+        res.render('contact', {contact})
     }
 }
 
